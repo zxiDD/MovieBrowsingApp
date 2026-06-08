@@ -1,97 +1,185 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Movie Browsing App
 
-# Getting Started
+A React Native movie browsing application
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+The app allows users to:
 
-## Step 1: Start Metro
+* Browse trending, top-rated, and upcoming movies
+* Search movies dynamically
+* View detailed movie information
+* Watch trailers directly inside the app
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+# Features
 
-```sh
-# Using npm
-npm start
+## Home Screen
 
-# OR using Yarn
-yarn start
+* Featured hero banner
+* Trending movies carousel
+* Top rated movies carousel
+* Upcoming releases carousel
+
+## Search
+
+* Dynamic movie search using TMDB API
+
+## Movie Details
+
+* Poster and movie information
+* Release date
+* Runtime
+* Ratings
+* Genre badges
+* Overview/plot summary
+* Inline YouTube trailer playback
+
+## Navigation
+
+* Bottom tab navigation
+* Stack navigation for details screen
+
+---
+
+# Tech Stack
+
+* React Native
+* React Navigation
+* Axios
+* TMDB API
+* react-native-youtube-iframe
+* react-native-webview
+
+---
+
+# Project Structure
+
+```txt
+src/
+ ├── api/
+ │    └── tmdb.js
+ ├── components/
+ │    ├── HeroBanner.tsx
+ │    ├── MovieCard.tsx
+ │    └── MovieRow.tsx
+ ├── constants/
+ │    └── config.ts
+ ├── navigation/
+ │    └── AppNavigator.tsx
+ ├── screens/
+ │    ├── HomeScreen.tsx
+ │    ├── SearchScreen.tsx
+ │    └── DetailsScreen.tsx
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+# Installation
 
-### Android
+## 1. Clone Repository
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+git clone https://github.com/zxiDD/MovieBrowsingApp.git
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 2. Install Dependencies
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm install
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
+## 3. Install iOS Pods (iOS only)
+
+```bash
+cd ios
+pod install
+cd ..
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+# Environment Variables
 
-# OR using Yarn
-yarn ios
+Create a `config.ts` file inside:
+
+```txt
+src/constants/config.ts
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Add your TMDB API key:
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```ts
+export const API_KEY = 'YOUR_TMDB_API_KEY';
 
-## Step 3: Modify your app
+export const BASE_URL = 'https://api.themoviedb.org/3';
 
-Now that you have successfully run the app, let's make changes!
+export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+---
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+# Getting TMDB API Key
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+1. Create an account on TMDB
+2. Generate an API key
+3. Add the API key inside `config.ts`
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
+# Run the App
 
-### Now what?
+## Android
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```bash
+npx react-native run-android
+```
 
-# Troubleshooting
+## iOS
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```bash
+npx react-native run-ios
+```
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+# Dependencies Used
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```bash
+npm install axios
+
+npm install @react-navigation/native
+
+npm install @react-navigation/native-stack
+
+npm install @react-navigation/bottom-tabs
+
+npm install react-native-screens react-native-safe-area-context
+
+npm install react-native-youtube-iframe
+
+npm install react-native-webview
+```
+
+---
+
+# Screenshots / Demo
+[App Demo](https://github.com/user-attachments/assets/384b42a8-d959-48bd-a629-f5666c6df344
+)
+
+---
+
+# Notes
+
+* No backend server was used.
+* All movie data is fetched directly from TMDB API.
+* State management is handled locally using React hooks.
+
+---
+
+# Author
+
+Zaid Khan
